@@ -24,7 +24,7 @@ const Header = () => {
         </Navbar.Brand>
 
         {/* Search Bar */}
-        <div className="grow mx-4" style={{ maxWidth: '500px' }}>
+        <div className="grow mx-4" style={{ maxWidth: '350px' }}>
           <InputGroup className="rounded-pill bg-white overflow-hidden shadow-sm border">
             <InputGroup.Text className="bg-white border-0 pe-1 text-muted">
               <BsSearch />
