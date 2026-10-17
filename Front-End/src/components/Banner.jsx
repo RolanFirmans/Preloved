@@ -5,8 +5,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 const Banner = () => {
   return (
     <div className="bg-light py-4">
-      <Container className="mb-4">
-        <div className="bg-white rounded-4 p-4 p-md-5 shadow-sm border">
+      <div className="bg-white rounded-4 p-4 p-md-5 shadow-sm border">
           <Row className="align-items-center gy-4">
             <Col lg={7}>
               <Badge bg="success" className="bg-opacity-10 text-success px-3 py-2 rounded-pill fw-normal mb-3">
@@ -59,8 +58,7 @@ const Banner = () => {
               />
             </Col>
           </Row>
-        </div>
-      </Container>
+      </div>
     </div>
   );
 };

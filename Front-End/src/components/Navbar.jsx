@@ -12,11 +12,14 @@ const Header = () => {
         {/* Logo & Brand Name */}
         <Navbar.Brand href="#home" className="d-flex align-items-center gap-2">
           <div 
-            className="d-flex align-items-center justify-content-center bg-success text-white rounded-3" 
+            className="d-flex align-items-center justify-content-center bg-success text-white rounded-3 overflow-hidden" 
             style={{ width: '40px', height: '40px' }}
           >
-            {/* Ganti dengan <img src="logo.png" /> jika ada file logo */}
-            <span className="fw-bold fs-5">💚</span>
+            <img 
+              src="path logo preloved"
+              alt="PreLoved Hub Logo" 
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
           </div>
           <span className="fw-bold text-dark fs-5">
             PreLoved <span className="text-success">Hub</span>
@@ -38,35 +41,8 @@ const Header = () => {
           </InputGroup>
         </div>
 
-        {/* Right Section: Role Switcher, Icons & Profile */}
+        {/* Right Section: Icons & Profile */}
         <div className="d-flex align-items-center gap-4">
-          
-          {/* Switcher Customer / Admin */}
-          <div className="bg-light p-1 rounded-pill border d-flex align-items-center">
-            <button
-              onClick={() => setRole('Customer')}
-              className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${
-                role === 'Customer'
-                  ? 'bg-white text-success shadow-sm'
-                  : 'text-muted border-0'
-              }`}
-              style={{ fontSize: '13px' }}
-            >
-              Customer
-            </button>
-            <button
-              onClick={() => setRole('Admin')}
-              className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${
-                role === 'Admin'
-                  ? 'bg-white text-success shadow-sm'
-                  : 'text-muted border-0'
-              }`}
-              style={{ fontSize: '13px' }}
-            >
-              Admin
-            </button>
-          </div>
-
           {/* Wishlist Icon */}
           <div className="position-relative cursor-pointer text-dark fs-5">
             <BsHeart />
