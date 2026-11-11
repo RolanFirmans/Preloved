@@ -1,0 +1,7 @@
+{
+  "name": "preloved-hub",
+  "version": "1.0.0",
+  "scripts": {
+    "test:ci": "npm run build --prefix Front-End"
+  }
+}
