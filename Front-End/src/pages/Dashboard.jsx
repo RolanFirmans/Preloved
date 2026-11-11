@@ -33,7 +33,7 @@ import Footer from '../components/Footer';
 import ProductReviews from '../components/ProductReviews';
 import { addToCart } from '../utils/cart';
 
-const Dashboard = () => {
+const Dashboard = ( => {
   const navigate = useNavigate();
   const URL = (import.meta.env.VITE_URL_API || 'http://localhost:5000').replace(/\/+$/, '');
   const link = `${URL}/api/produk`;
