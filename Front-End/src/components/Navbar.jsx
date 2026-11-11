@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
-import { Navbar, Container, Form, InputGroup, Badge, Image } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Navbar, Container, Form, InputGroup, Badge, Image, Button } from 'react-bootstrap';
 import { BsSearch, BsHeart, BsBag } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
+import { getCartCount } from '../utils/cart';
 
 const Header = () => {
-  const [role, setRole] = useState('Customer');
+  const navigate = useNavigate();
+  const [count, setCount] = useState(getCartCount);
+
+  useEffect(() => {
+    const updateCount = () => setCount(getCartCount());
+    window.addEventListener('cart-updated', updateCount);
+    return () => window.removeEventListener('cart-updated', updateCount);
+  }, []);
 
   return (
     <Navbar bg="light" className="py-2 px-3 shadow-sm border-bottom">
       <Container fluid className="d-flex align-items-center justify-content-between">
         
         {/* Logo & Brand Name */}
-        <Navbar.Brand href="#home" className="d-flex align-items-center gap-2">
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2">
           <div 
             className="d-flex align-items-center justify-content-center bg-success text-white rounded-3 overflow-hidden" 
             style={{ width: '40px', height: '40px' }}
@@ -44,22 +53,20 @@ const Header = () => {
         {/* Right Section: Icons & Profile */}
         <div className="d-flex align-items-center gap-4">
           {/* Wishlist Icon */}
-          <div className="position-relative cursor-pointer text-dark fs-5">
+          <button type="button" className="border-0 bg-transparent position-relative cursor-pointer text-dark fs-5" aria-label="Wishlist">
             <BsHeart />
-          </div>
+          </button>
 
           {/* Cart Icon with Badge */}
-          <div className="position-relative cursor-pointer text-dark fs-5">
+          <Button variant="link" className="position-relative text-dark fs-5 p-0" aria-label={`Buka keranjang, ${count} item`} onClick={() => navigate('/cart')}>
             <BsBag />
-            <Badge 
-              bg="success" 
-              pill 
-              className="position-absolute top-0 start translate-middle"
+            {count > 0 && <Badge
+              bg="success"
+              pill
+              className="position-absolute top-0 start-100 translate-middle"
               style={{ fontSize: '10px' }}
-            >
-              2
-            </Badge>
-          </div>
+            >{count}</Badge>}
+          </Button>
 
           {/* User Profile Avatar */}
           <div className="position-relative">
