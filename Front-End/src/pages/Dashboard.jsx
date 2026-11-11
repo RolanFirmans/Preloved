@@ -92,7 +92,7 @@ const Dashboard = () => {
     return `${URL}/uploads/products/${gambar}`;
   };
 
-  const LoadData = async () => {
+  const LoadData = async () = {
     setLoading(true);
     setError('');
 
