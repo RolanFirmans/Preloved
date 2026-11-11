@@ -1,7 +1,10 @@
 {
-  "name": "preloved-hub",
-  "version": "1.0.0",
+  "name": "Preloved",
   "scripts": {
-    "test:ci": "npm run build --prefix Front-End"
+    "test:ci": "npm run build --prefix Front-End",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
